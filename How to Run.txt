@@ -1,0 +1,5 @@
+1) Get a python interpreter, be it online or local; such as ipython3
+2) Navigate to the correct directory
+3) Import the version you wish to run.
+  ex)) ipython3 -i ExigentInvestmentGame
+4) Enjoy!
