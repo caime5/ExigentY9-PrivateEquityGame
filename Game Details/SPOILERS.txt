@@ -1,0 +1,12 @@
+Opening any file in this level will de-mystify the experience. The single player game can be played by running the file on the outer level of the folder.
+If you wish to run the multiplayer experience, have the organizer run XGNPhysicalVsn
+If you truly wish to pull back the curtain, the following files do the following:
+  XGNPhysicalVsn is the save-load, year updating, and list of companies for both the physical and terminal games.
+  XGNPhysicalVsnTests are checksums to ensure that the companies were not mistyped; among other things.
+  XGNTerminalGame is the file run that allows for the experience to work with 1 player.
+
+If you wish to change the game:
+  Ensure that "Original Creator: Carlos Isaias Mendoza (carisamen157@gmail.com)" is in the header.
+  To add companies, it would be easiest to insert them into the Physical Version, as it is imported across the other levels.
+  If companies are to only become available after certain years, then it may be wise to add it in either the terminal or physical version; based on needs.
+  Have fun and do not get mad as you code.
