@@ -1,0 +1,2 @@
+import XGNTerminalVsn as X
+if __name__ == "main": X.run()
