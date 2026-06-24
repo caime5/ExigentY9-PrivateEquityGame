@@ -7,7 +7,7 @@ All comedic references, however, are intentional.
 Funded partly by the sponsors at 5th Century Partners
 Contact at carisamen157@gmail.com in case of either distribution, adaptation, or if a bug is seen. 
 """
-import StockGamev2 as S
+import XGNGame as S
 
 newline:str = ' '
 one:str = '①'
