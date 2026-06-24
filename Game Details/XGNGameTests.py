@@ -1,5 +1,5 @@
 from scipy.integrate import quad
-import StockGamev2 as S
+import XGNGame as S
 
 def functionTestsWork()->bool:
     value = True
