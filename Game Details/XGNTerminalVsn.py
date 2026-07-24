@@ -7,7 +7,7 @@ All comedic references, however, are intentional.
 Funded partly by the sponsors at 5th Century Partners; Exigent sponsor.
 Contact at carisamen157@gmail.com in case of either distribution, adaptation, or if a bug is seen. 
 """
-from StockGamev3 import Complex, Stock
+from XGNPhysicalVsn3 import Complex, Stock
 import time
 from typing import Callable
 import random as r
