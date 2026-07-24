@@ -15,11 +15,11 @@ import json
 import math
 from numpy import random as ra
 
-multiplyFlag = False #Extra day
-baseFactorFlag = False #Birthday
-shrinkCostFlag = False #cucumber
-flattedRevFlag = False #pestilence
-noDecayCVRFlag = False #arbiter
+multiplyFlag = False
+baseFactorFlag = False 
+shrinkCostFlag = False 
+flattedRevFlag = False 
+noDecayCVRFlag = False
 margin = 0.2
 
 quiz:dict[int, list[str]] = {}
