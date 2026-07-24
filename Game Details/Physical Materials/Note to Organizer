@@ -1,0 +1,8 @@
+1st) Thank you for spreading this game to your group of individuals.
+2nd) Feel free to fine any group for serious errors, including putting the wrong year, investment firm name, vague handwriting, etc.
+3rd) Add more twists, such as an auction w/powerups, food, whatever you want to inject energy into the game (though keep it low frequency to manage excitement)
+4th) You will need a consistent way to tract interest and the cash returned from this (Round start - money spent {before profit but after investment})*(1+interest rate)
+5th) Tracking the net worth of companies:
+  I used google sheets and oldPrice += %owned/10*(profit); but feel free to change this to have a more/less volaitle experience.
+
+HAVE FUN!
