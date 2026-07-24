@@ -2,7 +2,6 @@ import random as r
 from typing import Self, Callable
 import math
 import json
-import copy
 """
 This is a slightly different game version than the other physical one present in this directory. This is because the Stock Class was implemented in this version.
 Switch at your own leisure; you will need to rename saves or otherwise modify the save functionality though if you wish to swap them.
