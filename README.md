@@ -7,3 +7,5 @@ Contact at carisamen157@gmail.com in case of either distribution, adaptation, or
 Credit awarded:
   Steven Mcilrath - Creating companies, their functions, and statistics. Design constraints, other physical details not seen in the online version
   Carlos Mendoza - Implementing ideas, creating design decisions for each interaction, all code.
+
+Instructions: Download, extract, then read the How to Run.txt. Proceed as you need.
