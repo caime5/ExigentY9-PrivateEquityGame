@@ -7,8 +7,7 @@ Detailed instructions below these vague steps:
 4) Enjoy!
 
 1)  Install VSCodium (Windows and Mac)
-Most of you probably already have VSCodium installed on your computer. If not, make sure to
-install it following the instructions available at https://vscodium.com/#install.
+Step 0:install it following the instructions available at https://vscodium.com/#install   ; or else choose a different environment to run this.
 Windows 10/11
 Installing WSL
 The Windows Subsystem for Linux (WSL) is a feature on Windows that allows users to run a
