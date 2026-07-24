@@ -7,6 +7,6 @@ If you truly wish to pull back the curtain, the following files do the following
 
 If you wish to change the game:
   Ensure that "Original Creator: Carlos Isaias Mendoza (carisamen157@gmail.com)" is in the header.
-  To add companies, it would be easiest to insert them into the Physical Version, as it is imported across the other levels.
-  If companies are to only become available after certain years, then it may be wise to add it in either the terminal or physical version; based on needs.
+  To add companies, then it may be wise to add it in either the terminal or physical version; based on needs.
+  It is possible, though a headache, to restrict a company from being bought/sold based on year count. I leave that to any future adapter in case they wish to do so.
   Have fun and do not get mad as you code.
