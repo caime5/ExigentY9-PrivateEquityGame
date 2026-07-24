@@ -1,5 +1,108 @@
+Detailed instructions below these vague steps:
 1) Get a python interpreter, be it online or local; such as ipython3
-2) Navigate to the correct directory
+2) Navigate to the correct directory{This one?? Inside Game Details?? your choice}
 3) Import the version you wish to run.
-  ex)) ipython3 -i ExigentInvestmentGame
+  ex)) ipython3 -i ExigentInvestmentGame.py
+  ex)) ipython3 -i {VSN in game details}.py
+4) Enjoy!
+
+1)  Install VSCodium (Windows and Mac)
+Most of you probably already have VSCodium installed on your computer. If not, make sure to
+install it following the instructions available at https://vscodium.com/#install.
+Windows 10/11
+Installing WSL
+The Windows Subsystem for Linux (WSL) is a feature on Windows that allows users to run a
+Linux environment without the need for a virtual machine or a dual boot configuration. 
+To install WSL, first check the operating system of your machine. If you are using Windows 10
+or 11, open Powershell in administrator mode and type the following command:
+$ wsl --install
+After running the command, restart your machine.
+To run WSL, open Powershell and run the following command:
+$ wsl
+Alternatively, you may open WSL by looking up the name of the Linux distribution used by WSL
+(Ubuntu) on the Windows home search.
+Git generally comes pre-installed in most WSL distributions. To check if Git is installed on your
+subsystem, run the following command:
+$ git --version
+If the command fails, you can install Git using the following command:
+$ sudo apt update
+$ sudo apt install git
+Installing Python
+To install Python, run the following commands:
+$ sudo apt-get update
+$ sudo apt-get install python3 python3-pip
+Install Python 3.12 or higher, as CMSC 14200 relies on features that are only available in
+version 3.12 or higher of Python.
+Please note that an alternate way of running Python on Windows is through a software package
+called Anaconda; please do not use Anaconda in this class, as some of the instructions we
+provide may not work with Anaconda. Using WSL ensures that you are using a Linux system,
+which means all the instructions we provide for the CS Linux Servers should work just as well
+(or, at most, with very minor changes) on your Windows machine with WSL.
+WSL vs PowerShell
+If you are using a Windows system, it is important that you run all your code inside WSL (the
+Windows Subsystem for Linux). The reason for this is that WSL will allow you to run a Linux
+environment on your Windows computer, using the same tools and terminal commands you’ve
+learned about so far. This ensures that we can provide a uniform set of instructions to everyone
+in the class, regardless of whether they’re running on Windows (via WSL), a Mac (which is a
+UNIX system with the same tools and terminals as a Linux system), or the CS Linux servers.
+Besides WSL, Windows includes two other terminals:
+- PowerShell, a terminal we asked you to run for the purposes of installing WSL
+- Command Prompt, a simpler terminal that you may encounter on your Windows
+system.
+While it is technically possible to run Python in either of these terminals, they both use a
+different set of tools and commands, different from those found on a Linux system, so we may
+not be able to help you if you run into issues when running those terminals.
+If you have already opened a PowerShell window or a Command Prompt window, type wsl.
+This will open a WSL Linux terminal on your Windows computer. Make sure to run the cd
+command, to ensure you are in your WSL home directory.
+If you’re unsure of whether you’re running in the correct terminal, try running the following
+command:
+$ which python3
+The terminal should respond with
+/usr/bin/python3
+If you see this, you are running inside a WSL Linux terminal. This is where you should run any
+commands related to your coursework.
+If, on the other hand, you see the following error message:
+which : The term ‘which’ is not recognized as the name of a cmdlet,
+function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and
+try again.
+that means you are running inside the Windows PowerShell.
+If you see the following error message
+‘which’ is not recognized as an internal or external command, operable
+program or batch file.
+that means you are running inside the Command Prompt.
+MacOS
+Begin by running the Mac OS Terminal application.
+If you haven’t yet installed Homebrew, a useful package manager for open-source software, you
+can do so by navigating to https://brew.sh and executing the terminal command presented in the
+middle of the page.
+Make sure to read the messages printed by the Homebrew installer at the end of its installation.
+It may ask you to run several additional commands to finalize the installation.
+Ensure that Homebrew is up to date by running
+$ brew update
+To install Git, type the following command on your terminal.
+$ brew install git
+You can verify that Git is installed on your computer by typing
+$ git --version
+Python may already be installed on your computer. To check whether Python is installed, run the
+following command:
+$ python3 –version
+If the command succeeds, and the version printed out is 3.12 or higher, you are all set. If Python
+is not installed on your computer, or the version is lower than 3.12, you will need to install or
+update it with Homebrew. In a terminal, type the following:
+$ brew install python3@3.12
+
+2) Navigation
+Once in your local python environment {Vscodium or whatever you may have done instead, but these instructions will assume Vscodium [and also windows], but ai can bridge the gap in instructions I reckon}
+2.1: open the terminal {where you can input commands} with crtl+`
+2.2: type wsl and press enter
+2.3: open file explorer and find where the file that you wish to run is {Likely downloads/Exigent-Y9-PrivateEquityGame
+2.4: Navigate with [cd ..] or [cd {X}] to find the path from 2.3
+2.4.1 If deeper in some folder that is not the path from earlier, type cd .. and press enter to go 1 level out of that folder
+2.4.2 Otherwise, navigate 1 folder at a time using cd X; where X is the new path that we want to find, such as cd Downloads
+
+3) Running
+Just do the sample versions above. It will work unless you renamed the files; but why would you do that just now?
+
 4) Enjoy!
