@@ -70,7 +70,13 @@ def game(target, margin)-> bool:
     print(f"\nTime elapsed: {dur:.2f} seconds.")
     if mT <= dur <= MT:return True
     else:return False
+def summary():
+    print("Your portfolio is as follows:")
+    print('Stock   |   % owned.')
+    for key in SE['Self'][2]:
+        print(str(key)+'   |  '+str(SE['Self'][2][key]))
 def JaFirst():
+    summary()
     print('\n Date: January 1st. \n Your vice president walks into your office, saying')
     print('\n "Congrats on keeping this firm afloat this year, boss! Did you forget to save the presentation from yesterday?"')
     c = input('\n Save? (Y/N) \n')
@@ -78,6 +84,7 @@ def JaFirst():
         print('\n Please only return capital Y for yes or capital N for no.')
         c = input('\n Save? (Y/N) \n')
     if c == 'Y': save()
+    
 def Wait():
     print("\n Your current amount of cash on hand is $"+str(SE['Self'][0])+'M; the current net worth of your firm is $'+str(SE['Self'][-1])+'M.')
     print("\n Press Enter Key to Proceed.")
@@ -410,7 +417,7 @@ def buyRoutine(mayBuy=3):
             x = 0
             pass
         elif choice == 'buy':
-            target = input("Which ticker will you buy?\n")
+            target = input("Which ticker will you buy? {Note that all tickers are individual letters of the English alphabet [A-Z, 26 total].} \n")
             while target not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 print("This is not a ticker. Please try again.")
                 target = input("Which ticker will you buy?\n")
@@ -436,7 +443,7 @@ def buyRoutine(mayBuy=3):
                             else: break
                     except:
                         amount = input("Please input a decimal number. \n")
-            else: 
+            elif target != '': 
                 rN = cgn.randint(7,30)/10
                 priceTargetWhole = rN*SE[target][1]
                 print("You are attempting to buy a majority stake in a new company.")
@@ -465,50 +472,55 @@ def buyRoutine(mayBuy=3):
                         except:
                             print("Please input a number.")
                             priceBid = input("How much will you bid for this amount? \n")
+            else: pass
         elif choice == 'sell':
             print("You are trying to sell a stock that you own.")
             print(SE['Self'][2])
             print("Above is the portfolio of your investment firm; the letter is the ticker, and the decimal next to it is how much stake you posess.")
             target = input("Which ticker will you sell?\n")
             while target not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or target not in SE['Self'][2]:
+                if target == '': 
+                    break
                 print("This is not a valid ticker to sell. Please try again.")
                 target = input("Which ticker will you sell?\n")
-            rN = cgn.randint(7,20)/10
-            priceTargetWhole = rN * SE[target][1]
-            print("If trying to sell only a portion of your stake, you must still posess a majority in the company for it to be a valid transaction.")
-            selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
-            while type(selloff)!= float:
-                try:
-                    selloff = float(selloff)
-                    if SE['Self'][2][target]-selloff<0.5:
-                        print("This is not a valid transaction; you would not have a majority afterwards.")
+            if target == '':pass
+            else:
+                rN = cgn.randint(7,20)/10
+                priceTargetWhole = rN * SE[target][1]
+                print("If trying to sell only a portion of your stake, you must still posess a majority in the company for it to be a valid transaction.")
+                selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
+                while type(selloff)!= float:
+                    try:
+                        selloff = float(selloff)
+                        if SE['Self'][2][target]-selloff<0.5:
+                            print("This is not a valid transaction; you would not have a majority afterwards.")
+                            selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
+                        elif selloff == -1:print("You are selling off your entire stake.")
+                        elif selloff > SE['Self'][2][target]:
+                            print("You are trying to sell more stake than you own.")
+                            selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
+                    except:
+                        print("This was not a number. Please try again.")
                         selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
-                    elif selloff == -1:print("You are selling off your entire stake.")
-                    elif selloff > SE['Self'][2][target]:
-                        print("You are trying to sell more stake than you own.")
-                        selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
-                except:
-                    print("This was not a number. Please try again.")
-                    selloff = input("How much are you trying to sell off? Input [-1] for all of your stake, and any other number for that amount. \n")
-            if selloff != 0:
-                if selloff == -1:
-                    selloff = SE['Self'][2][target]
-                    priceBid = input("Please submit your asking price in millions of dollars? {Divide your 'real' asking price by a million.} \n")
-                    while type(priceBid)== str:
-                        try:
-                            priceBid = float(priceBid)
-                        except:
-                            print("This was not a number. Please try again.")
-                            priceBid = input("Please submit your asking price in millions of dollars? {Divide your 'real' asking price by a million.} \n")
-                    if priceBid<= priceTargetWhole*selloff:
-                        print("Sale successful. This net you a profit of $"+str(priceBid)+'M.')
-                        SE['Self'][0]+= priceBid
-                        del SE['Self'][2][target]
-                    else:print("No buyers took your offer on. No sale.")
-                else:
-                    SE['Self'][2][target] -= selloff
-                    SE['Self'][0] += selloff*priceTargetWhole
-                    print("The sale got you $"+str(selloff*priceTargetWhole)+'M.')
+                if selloff != 0:
+                    if selloff == -1:
+                        selloff = SE['Self'][2][target]
+                        priceBid = input("Please submit your asking price in millions of dollars? {Divide your 'real' asking price by a million.} \n")
+                        while type(priceBid)== str:
+                            try:
+                                priceBid = float(priceBid)
+                            except:
+                                print("This was not a number. Please try again.")
+                                priceBid = input("Please submit your asking price in millions of dollars? {Divide your 'real' asking price by a million.} \n")
+                        if priceBid<= priceTargetWhole*selloff:
+                            print("Sale successful. This net you a profit of $"+str(priceBid)+'M.')
+                            SE['Self'][0]+= priceBid
+                            del SE['Self'][2][target]
+                        else:print("No buyers took your offer on. No sale.")
+                    else:
+                        SE['Self'][2][target] -= selloff
+                        SE['Self'][0] += selloff*priceTargetWhole
+                        print("The sale got you $"+str(selloff*priceTargetWhole)+'M.')
         x -= 1
 def finAdvancement():
     print("Date: December 1st. \n It is time to review the investments made into your companies this year.")
@@ -842,11 +854,13 @@ def play()->None:
             while buyFlag:
                 print(options, "are the tickers you may buy, and you have a "+str(SE['Self'][0])+"M balance")
                 cart = input("Which company ticker would you add to your cart? Carts may only have one entry at a time. Stop shopping with EXIT. \n")
-                if cart == 'EXIT':buyFlag = False
+                if cart == 'EXIT' and len(SE['Self'][2])>0:buyFlag = False
+                elif cart =='EXIT':
+                    print('You cannot play this game without buying at least one company. Please try again. \n')
                 elif cart not in options: print("Please retry entry. It is, for instance, A, and not 'A' or a.")
                 else:
                     while True:
-                        percent = input("How much of this company would you wish to buy? Use decimal parts (like 51 for 51%) for stake; and 0 to cancel. \n")
+                        percent = input("How much of this company would you wish to buy? Use decimal parts (like .51 for 51%) for stake; and 0 to cancel. \n")
                         try:
                             percent = float(percent)
                         except:
